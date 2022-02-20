@@ -16,7 +16,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="table_Szobor" layoutX="14.0" layoutY="14.0" prefHeight="350.0" prefWidth="420.0" AnchorPane.bottomAnchor="6.800000000000011" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="166.0" AnchorPane.topAnchor="14.0">
+                        <TableView fx:id="table_Szobor" layoutX="14.0" layoutY="14.0" onMouseClicked="#click_Szobor" prefHeight="350.0" prefWidth="420.0" AnchorPane.bottomAnchor="6.800000000000011" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="166.0" AnchorPane.topAnchor="14.0">
                           <columns>
                             <TableColumn fx:id="col_SzId" prefWidth="75.0" text="Id" />
                             <TableColumn fx:id="col_SzSzemely" prefWidth="75.0" text="Személy" />
@@ -27,17 +27,17 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
-                        <Button layoutX="465.0" layoutY="25.0" mnemonicParsing="false" onAction="#btn_SzHozzaad" prefHeight="40.0" prefWidth="100.0" text="Hozzáadás" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="25.0">
+                        <Button fx:id="btn_SzHozzaad" layoutX="465.0" layoutY="25.0" mnemonicParsing="false" onAction="#btn_SzHozzaad" prefHeight="40.0" prefWidth="100.0" text="Hozzáadás" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="25.0">
                            <font>
                               <Font name="Century Gothic Bold" size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="465.0" layoutY="88.0" mnemonicParsing="false" onAction="#btn_SzModosit" prefHeight="40.0" prefWidth="100.0" text="Módosítás" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="88.0">
+                        <Button fx:id="btn_SzModosit" layoutX="465.0" layoutY="88.0" mnemonicParsing="false" onAction="#btn_SzModosit" prefHeight="40.0" prefWidth="100.0" text="Módosítás" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="88.0">
                            <font>
                               <Font name="Century Gothic Bold" size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="465.0" layoutY="317.0" mnemonicParsing="false" onAction="#btn_SzTorol" prefHeight="40.0" prefWidth="100.0" text="Törlés" AnchorPane.bottomAnchor="14.199999999999989" AnchorPane.rightAnchor="35.0">
+                        <Button fx:id="btn_SzTorol" layoutX="465.0" layoutY="317.0" mnemonicParsing="false" onAction="#btn_SzTorol" prefHeight="40.0" prefWidth="100.0" text="Törlés" AnchorPane.bottomAnchor="14.199999999999989" AnchorPane.rightAnchor="35.0">
                            <font>
                               <Font name="Century Gothic Bold" size="14.0" />
                            </font>
@@ -50,7 +50,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                   <children>
-                      <TableView fx:id="table_Festmeny" layoutX="14.0" layoutY="14.0" prefHeight="350.0" prefWidth="420.0" AnchorPane.bottomAnchor="6.800000000000011" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="166.0" AnchorPane.topAnchor="14.0">
+                      <TableView fx:id="table_Festmeny" layoutX="14.0" layoutY="14.0" onMouseClicked="#click_Festmeny" prefHeight="350.0" prefWidth="420.0" AnchorPane.bottomAnchor="6.800000000000011" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="166.0" AnchorPane.topAnchor="14.0">
                           <columns>
                               <TableColumn fx:id="col_FId" prefWidth="75.0" text="Id" />
                               <TableColumn fx:id="col_FCim" prefWidth="75.0" text="Cím" />
@@ -61,17 +61,17 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                       </TableView>
-                      <Button layoutX="465.0" layoutY="25.0" mnemonicParsing="false" onAction="#btn_FHozzaad" prefHeight="40.0" prefWidth="100.0" text="Hozzáadás" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="25.0">
+                      <Button fx:id="btn_FHozzaad" layoutX="465.0" layoutY="25.0" mnemonicParsing="false" onAction="#btn_FHozzaad" prefHeight="40.0" prefWidth="100.0" text="Hozzáadás" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="25.0">
                           <font>
                               <Font name="Century Gothic Bold" size="14.0" />
                           </font>
                       </Button>
-                      <Button layoutX="465.0" layoutY="88.0" mnemonicParsing="false" onAction="#btn_FModosit" prefHeight="40.0" prefWidth="100.0" text="Módosítás" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="88.0">
+                      <Button fx:id="btn_FModosit" layoutX="465.0" layoutY="88.0" mnemonicParsing="false" onAction="#btn_FModosit" prefHeight="40.0" prefWidth="100.0" text="Módosítás" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="88.0">
                           <font>
                               <Font name="Century Gothic Bold" size="14.0" />
                           </font>
                       </Button>
-                      <Button layoutX="465.0" layoutY="317.0" mnemonicParsing="false" onAction="#btn_FTorol" prefHeight="40.0" prefWidth="100.0" text="Törlés" AnchorPane.bottomAnchor="14.199999999999989" AnchorPane.rightAnchor="35.0">
+                      <Button fx:id="btn_FTorol" layoutX="465.0" layoutY="317.0" mnemonicParsing="false" onAction="#btn_FTorol" prefHeight="40.0" prefWidth="100.0" text="Törlés" AnchorPane.bottomAnchor="14.199999999999989" AnchorPane.rightAnchor="35.0">
                           <font>
                               <Font name="Century Gothic Bold" size="14.0" />
                           </font>

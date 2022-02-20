@@ -6,7 +6,9 @@ import hu.petrik.muzeumfrontendjavafx.Szobor;
 import hu.petrik.muzeumfrontendjavafx.api.FestmenyApi;
 import hu.petrik.muzeumfrontendjavafx.api.SzoborApi;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -36,6 +38,18 @@ public class MainController extends Controller {
     private TableColumn <Festmeny, Boolean> col_FKiallit;
     @FXML
     private TableColumn <Festmeny, String> col_FCim;
+    @FXML
+    private Button btn_FModosit;
+    @FXML
+    private Button btn_FTorol;
+    @FXML
+    private Button btn_SzModosit;
+    @FXML
+    private Button btn_SzHozzaad;
+    @FXML
+    private Button btn_SzTorol;
+    @FXML
+    private Button btn_FHozzaad;
 
     public void initialize() {
         col_FId.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -89,6 +103,17 @@ public class MainController extends Controller {
 
     @FXML
     public void btn_SzTorol(ActionEvent actionEvent) {
+        Szobor torles = table_Szobor.getSelectionModel().getSelectedItem();
+        if (!confirm("Biztos törölni szeretné?")) {
+            return;
+        }
+        try {
+            boolean siker = SzoborApi.delete(torles.getId());
+            alert(siker ? "Sikeres törlés!" : "Sikertelen törlés!");
+            szoborListaFeltolt();
+        } catch (IOException e) {
+            hibaKiir(e);
+        }
     }
 
     @FXML
@@ -108,9 +133,38 @@ public class MainController extends Controller {
 
     @FXML
     public void btn_FTorol(ActionEvent actionEvent) {
+        Festmeny torles = table_Festmeny.getSelectionModel().getSelectedItem();
+        if (!confirm("Biztos törölni szeretné?")) {
+            return;
+        }
+        try {
+            boolean siker = SzoborApi.delete(torles.getId());
+            alert(siker ? "Sikeres törlés!" : "Sikertelen törlés!");
+            festmenyListaFeltolt();
+        } catch (IOException e) {
+            hibaKiir(e);
+        }
     }
 
     @FXML
     public void btn_SzModosit(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void click_Festmeny(Event event) {
+        int selectedIndex = table_Festmeny.getSelectionModel().getSelectedIndex();
+        if (selectedIndex != -1) {
+            btn_FModosit.setDisable(false);
+            btn_FTorol.setDisable(false);
+        }
+    }
+
+    @FXML
+    public void click_Szobor(Event event) {
+        int selectedIndex = table_Szobor.getSelectionModel().getSelectedIndex();
+        if (selectedIndex != -1) {
+            btn_SzModosit.setDisable(false);
+            btn_SzTorol.setDisable(false);
+        }
     }
 }

@@ -16,12 +16,12 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView layoutX="14.0" layoutY="14.0" prefHeight="350.0" prefWidth="420.0" AnchorPane.bottomAnchor="6.800000000000011" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="166.0" AnchorPane.topAnchor="14.0">
+                        <TableView fx:id="table_Szobor" layoutX="14.0" layoutY="14.0" prefHeight="350.0" prefWidth="420.0" AnchorPane.bottomAnchor="6.800000000000011" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="166.0" AnchorPane.topAnchor="14.0">
                           <columns>
                             <TableColumn fx:id="col_SzId" prefWidth="75.0" text="Id" />
-                            <TableColumn fx:id="col_SzCim" prefWidth="75.0" text="Cím" />
-                              <TableColumn fx:id="col_SzEv" prefWidth="75.0" text="Év" />
-                              <TableColumn fx:id="col_SzKiallit" prefWidth="75.0" text="Kiállítva" />
+                            <TableColumn fx:id="col_SzSzemely" prefWidth="75.0" text="Személy" />
+                              <TableColumn fx:id="col_SzMagas" prefWidth="75.0" text="Magasság" />
+                              <TableColumn fx:id="col_SzAr" prefWidth="75.0" text="Ár" />
                           </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -50,12 +50,12 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                   <children>
-                      <TableView layoutX="14.0" layoutY="14.0" prefHeight="350.0" prefWidth="420.0" AnchorPane.bottomAnchor="6.800000000000011" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="166.0" AnchorPane.topAnchor="14.0">
+                      <TableView fx:id="table_Festmeny" layoutX="14.0" layoutY="14.0" prefHeight="350.0" prefWidth="420.0" AnchorPane.bottomAnchor="6.800000000000011" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="166.0" AnchorPane.topAnchor="14.0">
                           <columns>
                               <TableColumn fx:id="col_FId" prefWidth="75.0" text="Id" />
-                              <TableColumn fx:id="col_FSzemely" prefWidth="75.0" text="Személy" />
-                              <TableColumn fx:id="col_FMagas" prefWidth="75.0" text="Magasság" />
-                              <TableColumn fx:id="col_FAr" prefWidth="75.0" text="Ár" />
+                              <TableColumn fx:id="col_FCim" prefWidth="75.0" text="Cím" />
+                              <TableColumn fx:id="col_FEv" prefWidth="75.0" text="Év" />
+                              <TableColumn fx:id="col_FKiallit" prefWidth="75.0" text="Kiállítva" />
                           </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

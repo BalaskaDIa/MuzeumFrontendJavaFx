@@ -78,6 +78,13 @@ public class MainController extends Controller {
 
     @FXML
     public void btn_SzHozzaad(ActionEvent actionEvent) {
+        try {
+            Controller hozzaad = ujAblak("szobor-felvetel-view.fxml", "Szobor felvétele", 300, 240);
+            hozzaad.getStage().setOnCloseRequest(event -> szoborListaFeltolt());
+            hozzaad.getStage().show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -86,6 +93,13 @@ public class MainController extends Controller {
 
     @FXML
     public void btn_FHozzaad(ActionEvent actionEvent) {
+        try {
+            Controller hozzaad = ujAblak("festmeny-felvetel-view.fxml", "Festmény felvétele", 300, 240);
+            hozzaad.getStage().setOnCloseRequest(event -> festmenyListaFeltolt());
+            hozzaad.getStage().show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

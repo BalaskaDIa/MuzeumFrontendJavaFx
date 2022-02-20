@@ -1,4 +1,4 @@
-package hu.petrik.muzeumfrontendjavafx;
+package hu.petrik.muzeumfrontendjavafx.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -6,7 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.layout.AnchorPane;
 
-public class HelloController {
+public class MainController {
 
     @FXML
     private TableColumn col_SzCim;

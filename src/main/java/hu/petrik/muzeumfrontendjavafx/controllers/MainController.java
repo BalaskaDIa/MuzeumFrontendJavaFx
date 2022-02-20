@@ -1,19 +1,20 @@
 package hu.petrik.muzeumfrontendjavafx.controllers;
 
+import hu.petrik.muzeumfrontendjavafx.Controller;
 import hu.petrik.muzeumfrontendjavafx.Festmeny;
 import hu.petrik.muzeumfrontendjavafx.Szobor;
-import hu.petrik.muzeumfrontendjavafx.api.Api;
+import hu.petrik.muzeumfrontendjavafx.api.FestmenyApi;
+import hu.petrik.muzeumfrontendjavafx.api.SzoborApi;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
+import java.util.List;
 
 import java.io.IOException;
 
-public class MainController {
+public class MainController extends Controller {
 
     @FXML
     private TableColumn <Festmeny, Integer> col_FId;
@@ -41,6 +42,38 @@ public class MainController {
         col_FCim.setCellValueFactory(new PropertyValueFactory<>("title"));
         col_FEv.setCellValueFactory(new PropertyValueFactory<>("year"));
         col_FKiallit.setCellValueFactory(new PropertyValueFactory<>("on_display"));
+
+        col_SzId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        col_SzSzemely.setCellValueFactory(new PropertyValueFactory<>("person"));
+        col_SzMagas.setCellValueFactory(new PropertyValueFactory<>("height"));
+        col_SzAr.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+        festmenyListaFeltolt();
+        szoborListaFeltolt();
+    }
+
+    private void festmenyListaFeltolt() {
+        try {
+            List<Festmeny> festmenyList = FestmenyApi.get();
+            table_Festmeny.getItems().clear();
+            for (Festmeny festmeny : festmenyList) {
+                table_Festmeny.getItems().add(festmeny);
+            }
+        } catch (IOException e) {
+            hibaKiir(e);
+        }
+    }
+
+    private void szoborListaFeltolt() {
+        try {
+            List<Szobor> szoborList = SzoborApi.get();
+            table_Szobor.getItems().clear();
+            for (Szobor szobor : szoborList) {
+                table_Szobor.getItems().add(szobor);
+            }
+        } catch (IOException e) {
+            hibaKiir(e);
+        }
     }
 
     @FXML

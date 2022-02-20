@@ -1,7 +1,8 @@
 module hu.petrik.muzeumfrontendjavafx {
     requires javafx.controls;
     requires javafx.fxml;
-
+    requires java.sql;
+    requires com.google.gson;
 
     opens hu.petrik.muzeumfrontendjavafx to javafx.fxml;
     exports hu.petrik.muzeumfrontendjavafx;
